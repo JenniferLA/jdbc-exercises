@@ -61,18 +61,15 @@ public class MySQLAlbumsDAO {
 
     // Create helper method that takes ResultSet as a parameter and makes/returns an Album from it
 //    private Album makeAlbumFromDB(ResultSet record) throws MySQLAlbumsException {
+    // assumes that record parameter is pointing to a valid record
+//    Album album = new Album();
 //        try {
-//            Statement st = connection.createStatement();
-//            ResultSet rs = st.executeQuery("SELECT * FROM albums");
-//            while (rs.next()) {
-//                albums.add(new Album(
-//                        rs.getLong("id"),
-//                        rs.getString("artist"),
-//                        rs.getString("name"),
-//                        rs.getInt("release_date"),
-//                        rs.getDouble("sales"),
-//                        rs.getString("genre")
-//                ));
+//            album.setId(record.getLong("id");
+//            album.setArtist(record.getString("artist");
+//            album.setName(record.getString("name");
+//            album.setReleaseDate(record.getInt("release_date");
+//            album.setSales(record.getDouble("sales");
+//            album.setGenre(record.getString("genre");
 //            }
 //        } catch (SQLException sqlx) {
 //            System.out.println(sqlx);
@@ -143,7 +140,9 @@ public class MySQLAlbumsDAO {
             st.setString(1, album.getArtist());
             st.setString(2, album.getName());
             st.setString(3, String.valueOf(album.getReleaseDate()));
+            // st.setInt(3, album.getReleaseDate();
             st.setString(4, String.valueOf(album.getSales()));
+            // st.setDouble(4, album.getSales();
             st.setString(5, album.getGenre());
 
             int numInserted = st.executeUpdate();
@@ -186,11 +185,10 @@ public class MySQLAlbumsDAO {
             st.setLong(1, id);
             st.executeUpdate();
         } catch (SQLException sqlx) {
-            throw new RuntimeException();
+            throw new RuntimeException(sqlx.getMessage());
         }
 
     }
-
 
 
 

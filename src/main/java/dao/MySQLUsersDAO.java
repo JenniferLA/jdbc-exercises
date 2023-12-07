@@ -49,8 +49,8 @@
 //            // wrapping checked exceptions in an unchecked exception
 //            throw new RuntimeException(e);
 //        }
-
-
+//
+//
 //        public boolean addUser (String username, String pw, String email){
 //            PreparedStatement st = null;
 //            try {
